@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Tidemark</Name>
+  <Repository>ghcr.io/tidemark-analytics/tidemark:latest</Repository>
+  <Registry>https://github.com/tidemark-analytics/tidemark/pkgs/container/tidemark</Registry>
+  <Network>bridge</Network>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Icon>https://raw.githubusercontent.com/tidemark-analytics/unraid-templates/main/icon.png</Icon>
+  <WebUI>http://[IP]:[PORT:8080]</WebUI>
+  <Overview>Tidemark is privacy-first web analytics with one calm dashboard. It sets no cookies and never stores IP addresses, and visitor ids change every day, so nobody can be followed around. It shows visitors, pageviews, bounce rate and visit duration, with sources, pages, locations, devices, goals and custom events underneath, plus public dashboards and password-protected shared links you can brand with your own logo and color. The tracking script is about 2 KB and follows Plausible's conventions.[br][br]First run: start the container, open the WebUI, and visit /install to create your admin account (SQLite needs no setup; MySQL, MariaDB and PostgreSQL work too). Everything lives in the appdata folder. Put it behind a reverse proxy for HTTPS and set Public address to match. Update by pulling a newer image; migrations run on the first visit.</Overview>
+  <Project>https://github.com/tidemark-analytics/tidemark</Project>
+  <Support>https://github.com/tidemark-analytics/tidemark/issues</Support>
+  <ReadMe>https://docs.tidemarkanalytics.com/article/137-install-with-docker</ReadMe>
+  <TemplateURL>https://raw.githubusercontent.com/tidemark-analytics/unraid-templates/main/templates/tidemark.xml</TemplateURL>
+  <Category>Tools: Productivity:</Category>
+  <ExtraSearchTerms>analytics web analytics statistics stats privacy plausible umami matomo google analytics visitors pageviews website traffic</ExtraSearchTerms>
+  <Requires>A reverse proxy (Nginx Proxy Manager, SWAG, Traefik or a Cloudflare Tunnel) for HTTPS. Visitor countries need a CDN such as Cloudflare in front.</Requires>
+  <Changes>First release in Community Apps. See https://github.com/tidemark-analytics/tidemark/releases for what is new in each version.</Changes>
+  <Date>2026-10-22</Date>
+  <MinVer>6.9.0</MinVer>
+  <License>MIT</License>
+  <Screenshot>https://raw.githubusercontent.com/tidemark-analytics/unraid-templates/main/screenshots/dashboard-dark.png</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/tidemark-analytics/unraid-templates/main/screenshots/dashboard-light.png</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/tidemark-analytics/unraid-templates/main/screenshots/branding-coffee-light.png</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/tidemark-analytics/unraid-templates/main/screenshots/branding-fjord-dark.png</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/tidemark-analytics/unraid-templates/main/screenshots/branding-meadow-light.png</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/tidemark-analytics/unraid-templates/main/screenshots/branding-settings.png</Screenshot>
+  <Config Name="WebUI port" Target="8080" Default="8080" Mode="tcp" Description="Port for the Tidemark dashboard and the tracking script." Type="Port" Display="always" Required="true" Mask="false">8080</Config>
+  <Config Name="Appdata" Target="/data" Default="/mnt/user/appdata/tidemark" Mode="rw" Description="Settings, the SQLite database, logs and uploads. Back this folder up." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/tidemark</Config>
+  <Config Name="Public address" Target="APP_URL" Default="http://tower:8080" Mode="" Description="The address people and your websites use to reach Tidemark, such as https://stats.example.com. It appears in the tracking snippet and in links." Type="Variable" Display="always" Required="true" Mask="false">http://tower:8080</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="User id the app runs as. Unraid's nobody is 99." Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Group id the app runs as. Unraid's users is 100." Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
+  <Config Name="Keep raw data (days)" Target="TIDEMARK_RETENTION_DAYS" Default="0" Mode="" Description="Delete raw visits and events older than this many days. 0 keeps everything." Type="Variable" Display="advanced" Required="false" Mask="false">0</Config>
+  <Config Name="Mail driver" Target="MAIL_MAILER" Default="log" Mode="" Description="Use smtp to send password reset and invitation emails. The default only writes them to the log." Type="Variable" Display="advanced" Required="false" Mask="false">log</Config>
+  <Config Name="SMTP host" Target="MAIL_HOST" Default="" Mode="" Description="SMTP server, when the mail driver is smtp." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="SMTP port" Target="MAIL_PORT" Default="587" Mode="" Description="SMTP port." Type="Variable" Display="advanced" Required="false" Mask="false">587</Config>
+  <Config Name="SMTP username" Target="MAIL_USERNAME" Default="" Mode="" Description="SMTP username." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="SMTP password" Target="MAIL_PASSWORD" Default="" Mode="" Description="SMTP password." Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="Mail from address" Target="MAIL_FROM_ADDRESS" Default="" Mode="" Description="The address emails are sent from." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

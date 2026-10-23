@@ -1,0 +1,8 @@
+<CommunityApplications>
+  <Profile>
+Templates for [Tidemark](https://tidemarkanalytics.com), privacy-first web analytics: one calm dashboard, no cookies, no stored IP addresses. Tidemark is open source (MIT) and also runs on ordinary PHP shared hosting. Documentation is at [docs.tidemarkanalytics.com](https://docs.tidemarkanalytics.com). For help, open an issue on [GitHub](https://github.com/tidemark-analytics/tidemark/issues).
+  </Profile>
+  <Icon>https://raw.githubusercontent.com/tidemark-analytics/unraid-templates/main/icon.png</Icon>
+  <WebPage>https://tidemarkanalytics.com</WebPage>
+  <Photo>https://raw.githubusercontent.com/tidemark-analytics/unraid-templates/main/screenshots/dashboard-dark.png</Photo>
+</CommunityApplications>

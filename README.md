@@ -18,6 +18,8 @@ Update the container from the Docker tab. Database migrations run the first time
 ## Screenshots
 
 ![Dashboard](screenshots/dashboard-dark.png)
+![Reports](screenshots/sections-dark.png)
+![Command palette](screenshots/command-palette-dark.png)
 ![Branded dashboard](screenshots/branding-coffee-light.png)
 
 Licensed under the MIT license.
